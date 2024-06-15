@@ -97,6 +97,6 @@ def median_session_length(df_filtered, site_url):
 def most_visited_pages(df_filtered, site_url):
     if df_filtered[df_filtered["site_url"] == site_url].empty:
         return "Site URL not found"
-    result = df_filtered[df_filtered["site_url"] == site_url]["page_view_url"].value_counts().head(10).reset_index()
+    result = df_filtered[df_filtered["site_url"] == site_url]["page_view_url"].value_counts().head(5).reset_index()
     result.columns = ['page_view_url', 'count']  # Rename columns for clarity
     return result
