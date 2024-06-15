@@ -1,0 +1,21 @@
+Num sessions for site www.s_1.com = 3684 median session length = 1353.0
+Num sessions for site www.s_2.com = 3632 median session length = 1341.5
+Num sessions for site www.s_3.com = 3640 median session length = 1392.5
+Num sessions for site www.s_4.com = 3584 median session length = 1361.5
+Num sessions for site www.s_5.com = 3623 median session length = 1375.0
+Num sessions for site www.s_6.com = 3712 median session length = 1374.0
+Num sessions for site www.s_7.com = 3598 median session length = 1318.5
+Num sessions for site www.s_8.com = 3683 median session length = 1353.0
+Num sessions for site www.s_9.com = 3730 median session length = 1326.5
+Num sessions for site www.s_10.com = 3674 median session length = 1329.0
+
+Num of unique sites for visitor_1 = 3
+Num of unique sites for visitor_2 = 2
+Num of unique sites for visitor_3 = 2
+Num of unique sites for visitor_4 = 4
+Num of unique sites for visitor_5 = 4
+Num of unique sites for visitor_6 = 1
+Num of unique sites for visitor_7 = 3
+Num of unique sites for visitor_8 = 3
+Num of unique sites for visitor_9 = 2
+Num of unique sites for visitor_10 = 4
