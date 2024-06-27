@@ -42,7 +42,7 @@ def load_and_process_data(csv_files, column_names, schema):
     df['time_diff'] = df.groupby(['visitor_id', 'site_url'])['timestamp'].diff().dt.total_seconds()
 
     # Mark rows where the time difference exceeds 30 minutes or is NaN (indicating the start of a session)
-    df['session_boundary'] = ((df['time_diff'] > 30*60) | df['time_diff'].isna(x§)).astype(int)
+    df['session_boundary'] = ((df['time_diff'] > 30*60) | df['time_diff'].isna()).astype(int)
 
     # Cumulative sum to identify session IDs
     df['session_id'] = df.groupby(['visitor_id', 'site_url'])['session_boundary'].cumsum()
