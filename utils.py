@@ -38,17 +38,16 @@ def load_and_process_data(csv_files, column_names, schema):
 
     df = df.sort_values(['timestamp', 'visitor_id','site_url', 'page_view_url']).reset_index(drop=True)
 
-    # New session identification logic starts here
     # Calculate the difference in timestamps between consecutive rows within each group
     df['time_diff'] = df.groupby(['visitor_id', 'site_url'])['timestamp'].diff().dt.total_seconds()
 
     # Mark rows where the time difference exceeds 30 minutes or is NaN (indicating the start of a session)
-    df['session_boundary'] = ((df['time_diff'] > 30*60) | df['time_diff'].isna()).astype(int)
+    df['session_boundary'] = ((df['time_diff'] > 30*60) | df['time_diff'].isna(x§)).astype(int)
 
     # Cumulative sum to identify session IDs
     df['session_id'] = df.groupby(['visitor_id', 'site_url'])['session_boundary'].cumsum()
 
-    # Calculate session start and end times based on these refined sessions
+    # Calculate session start and end times based on these sessions
     df['session_start'] = df.groupby(['visitor_id', 'site_url', 'session_id'])['timestamp'].transform('min')
     df['session_end'] = df.groupby(['visitor_id', 'site_url', 'session_id'])['timestamp'].transform('max')
 
@@ -93,4 +92,4 @@ def most_visited_pages(df_filtered, site_url):
         return "Site URL not found"
     result = df_filtered[df_filtered["site_url"] == site_url]["page_view_url"].value_counts().head(5).reset_index()
     result.columns = ['page_view_url', 'count']
-    return result #
+    return result
